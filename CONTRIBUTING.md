@@ -11,12 +11,13 @@ We strongly recommend that you set up these git hooks on your machine by:
 ```sh
 # sh
 # in the project root, run:
-ln -sf ../../.scripts/pre-commit .git/hooks/pre-commit
-ln -sf ../../.scripts/post-commit .git/hooks/post-commit
+ln -sf .scripts/pre-commit .git/hooks/pre-commit
+ln -sf .scripts/post-commit .git/hooks/post-commit
 ```
 
 > **Note that our CI will fail your PR if you dont run `mix format` in the project
 > root.**
+
 
 ## Styling
 
@@ -45,3 +46,4 @@ Have fun commiting new changes! :rainbow:
 [dev]: https://github.com/aviabird/snitch/tree/develop
 [commit-format]: https://chris.beams.io/posts/git-commit/
 [our-template]: https://github.com/aviabird/snitch/blob/develop/.git_commit_msg.txt
+
