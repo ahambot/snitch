@@ -4,8 +4,9 @@ defmodule Snitch.Data.Schema.Package do
   """
   use Snitch.Data.Schema
 
-  alias Snitch.Data.Schema.{Order, PackageItem, StockLocation, ShippingCategory, ShippingMethod}
+  alias Ecto.Nanoid
   alias Snitch.Data.Schema.Embedded.ShippingMethod, as: EmbeddedShippingMethod
+  alias Snitch.Data.Schema.{Order, PackageItem, ShippingCategory, ShippingMethod, StockLocation}
 
   @typedoc """
   A Package gets shipped to a user.
@@ -39,7 +40,7 @@ defmodule Snitch.Data.Schema.Package do
   @type t :: %__MODULE__{}
 
   schema "snitch_packages" do
-    field(:number, :string)
+    field(:number, Nanoid, autogenerate: true)
     field(:state, :string)
     field(:shipped_at, :utc_datetime)
     field(:tracking, :map)

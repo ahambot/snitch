@@ -26,7 +26,7 @@ defmodule Snitch.Data.Schema.PackageItem do
   package_item.delta = 0
   ```
 
-  ### Deffered Fulfillment
+  ### Deferred Fulfillment
 
   If the `:backordered?` field is `true`, the package item _will fulfill_ the
   line item, in the future. The (parent) package cannot be immediately shipped.
@@ -38,7 +38,8 @@ defmodule Snitch.Data.Schema.PackageItem do
   """
   use Snitch.Data.Schema
 
-  alias Snitch.Data.Schema.{Variant, LineItem, Package}
+  alias Ecto.Nanoid
+  alias Snitch.Data.Schema.{LineItem, Package, Variant}
 
   @typedoc """
   Every fulfilled `LineItem` get shipped in as `PackageItem` in a `Package`.
@@ -63,7 +64,7 @@ defmodule Snitch.Data.Schema.PackageItem do
   @type t :: %__MODULE__{}
 
   schema "snitch_package_items" do
-    field(:number, :string)
+    field(:number, Nanoid, autogenerate: true)
     field(:state, :string)
     field(:quantity, :integer)
     field(:delta, :integer)
