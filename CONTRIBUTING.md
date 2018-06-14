@@ -11,13 +11,15 @@ We strongly recommend that you set up these git hooks on your machine by:
 ```sh
 # sh
 # in the project root, run:
-ln -sf .scripts/pre-commit .git/hooks/pre-commit
-ln -sf .scripts/post-commit .git/hooks/post-commit
+ln -sf ../../.scripts/pre-commit .git/hooks/pre-commit
+ln -sf ../../.scripts/post-commit .git/hooks/post-commit
+
+# Yeah you read that right! Two folders up is necessary.
+# See: https://stackoverflow.com/questions/4592838/symbolic-link-to-a-hook-in-git#4594681
 ```
 
 > **Note that our CI will fail your PR if you dont run `mix format` in the project
 > root.**
-
 
 ## Styling
 
